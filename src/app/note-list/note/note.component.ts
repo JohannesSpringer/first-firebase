@@ -22,7 +22,6 @@ export class NoteComponent {
     if(!this.edit){
       this.hovered = false;
     }
-    console.log("Func Fav Filter");
   }
 
   openEdit(){
