@@ -15,21 +15,25 @@ export class NoteListComponent {
   constructor(private noteService: NoteListService) {
   }
 
-  getList(): Note[] {
-    return this.noteService.normalNotes;
+  getList(status: string): Note[] {
+    if (status == "trash") {
+      return this.noteService.trashNotes;
+    } else {
+      return this.noteService.normalNotes;
+    }
   }
 
-  changeFavFilter(filter:"all" | "fav"){
-    this.favFilter = filter;    
+  changeFavFilter(filter: "all" | "fav") {
+    this.favFilter = filter;
   }
 
-  changeTrashStatus(){
-    if(this.status == "trash"){
+  changeTrashStatus() {
+    if (this.status == "trash") {
       this.status = "notes";
     } else {
       this.status = "trash";
       this.favFilter = "all";
-    }    
+    }
   }
 
 }
